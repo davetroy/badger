@@ -1,0 +1,51 @@
+<h1>Listing badges</h1>
+
+<table>
+  <tr>
+    <th>Ticket</th>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>Company</th>
+    <th>About</th>
+    <th>Approved at</th>
+    <th>Key</th>
+    <th>Email</th>
+    <th>Twitter handle</th>
+    <th>Title</th>
+    <th>Badge type</th>
+    <th>Buyer firstname</th>
+    <th>Buyer lastname</th>
+    <th>Buyer email</th>
+    <th>Vegetarian</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @badges.each do |badge| %>
+  <tr>
+    <td><%= badge.ticket_id %></td>
+    <td><%= badge.firstname %></td>
+    <td><%= badge.lastname %></td>
+    <td><%= badge.company %></td>
+    <td><%= badge.about %></td>
+    <td><%= badge.approved_at %></td>
+    <td><%= badge.key %></td>
+    <td><%= badge.email %></td>
+    <td><%= badge.twitter_handle %></td>
+    <td><%= badge.title %></td>
+    <td><%= badge.badge_type %></td>
+    <td><%= badge.buyer_firstname %></td>
+    <td><%= badge.buyer_lastname %></td>
+    <td><%= badge.buyer_email %></td>
+    <td><%= badge.vegetarian %></td>
+    <td><%= link_to 'Show', badge %></td>
+    <td><%= link_to 'Edit', edit_badge_path(badge) %></td>
+    <td><%= link_to 'Destroy', badge, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Badge', new_badge_path %>

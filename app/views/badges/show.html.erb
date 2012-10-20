@@ -1,0 +1,25 @@
+<div id="preview">
+
+	<div class="firstname"><%= @badge.firstname %></div>
+	<div class="lastname"><%= @badge.lastname %></div>
+
+	<div class="title"><%= @badge.title %></div>
+	<div class="company"><%= @badge.company %></div>
+
+	<% if !@badge.twitter_handle.blank? %>
+		<div class="twitter">@<%= @badge.twitter_handle %></div>
+	<% end %>
+ 
+	<% if !@badge.about.blank? %>
+		<div class="fearless">I'm Fearless about...</div>
+		<div class="about"><%=@badge.about%></div>
+	<% end %>
+	
+	<div class="attendee">Attendee</div>
+
+	<div class="pass"><%=@badge.pass_name%></div>
+</div>
+<div id="preview_info">
+	This is a rough preview of your name badge. A final printed version will be ready for pickup at the event.<br/>
+	<a href="javascript:window.history.back();">Go back</a> to make changes or corrections. Otherwise you're all set! We'll see you at the show; just bring identification!
+</div>

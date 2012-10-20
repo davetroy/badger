@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  ticket_id: 1
+  firstname: MyString
+  lastname: MyString
+  company: MyString
+  about: MyString
+  approved_at: 2012-10-20 14:15:39
+  key: MyString
+  email: MyString
+  twitter_handle: MyString
+  title: MyString
+  badge_type: MyString
+  buyer_firstname: MyString
+  buyer_lastname: MyString
+  buyer_email: MyString
+  vegetarian: false
+
+two:
+  ticket_id: 1
+  firstname: MyString
+  lastname: MyString
+  company: MyString
+  about: MyString
+  approved_at: 2012-10-20 14:15:39
+  key: MyString
+  email: MyString
+  twitter_handle: MyString
+  title: MyString
+  badge_type: MyString
+  buyer_firstname: MyString
+  buyer_lastname: MyString
+  buyer_email: MyString
+  vegetarian: false

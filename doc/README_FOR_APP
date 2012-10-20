@@ -1,0 +1,2 @@
+
+# rails generate scaffold Badge ticket_id:integer firstname:string lastname:string company:string about:string approved_at:datetime key:string email:string twitter_handle:string title:string badge_type:string buyer_firstname:string buyer_lastname:string buyer_email:string vegetarian:boolean

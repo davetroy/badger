@@ -1,0 +1,37 @@
+<%= form_for(@badge) do |f| %>
+  <%= f.hidden_field :key %>
+
+  <% if @badge.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@badge.errors.count, "error") %> prohibited this badge from being saved:</h2>
+
+      <ul>
+      <% @badge.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div id="badge">
+	<%= f.text_field :firstname %> First Name (Required)
+	<%= f.text_field :lastname %> Last Name (Required)
+
+	<%= f.text_field :title, :placeholder => 'Title' %> Your Job Title
+	<%= f.text_field :company, :placeholder => 'Company' %> Company, Organization, or School
+
+    <%= f.text_field :about, :placeholder => "Talk to me about..." %> Talk to me about... (your interests, 80 characters)
+
+	<%= f.text_field :twitter_handle, :placeholder => 'Twitter Handle (@username)' %> Your Twitter Handle (if available)
+  </div>
+ 
+  <div id="extras">
+    <%= f.text_field :email, :placeholder => 'Email Address' %> Your Email Address (Required &ndash; will not be shared)<br/>
+
+    <%= f.check_box :vegetarian %> I prefer a vegetarian or vegan meal
+	<div class="actions">
+	  <%= f.submit "Generate Badge" %>
+	</div>
+  </div>
+
+<% end %>

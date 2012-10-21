@@ -68,7 +68,7 @@ class BadgesController < ApplicationController
   end
   
   def destroy
-    @badge = Badge.find(params[:id])
+    @badge = Badge.find_by_key(params[:id])
     @badge.destroy
     redirect_to foos_url
   end

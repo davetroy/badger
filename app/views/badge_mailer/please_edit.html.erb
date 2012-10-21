@@ -67,7 +67,7 @@
     </p>
 	<ul>
 		<li>Please complete this step by <%=18.hours.from_now.strftime('%A, %B %-d')%> so we can print the badge</li>
-		<li>Once printed, <strong>badges are not transferrable</strong> &mdash; be sure the name and badge information is correct!</li>
+		<li>Once printed, <strong>badges are not transferable</strong> &mdash; be sure the name and badge information is correct!</li>
 		<% if @badge.bought_by_third_party? %>
 			<li>If you purchased this ticket for <strong><%=@badge.ticketholder%></strong>, please forward this message to them so they can complete this step, or complete the badge for them as appropriate</li> 
 			<li>Please provide a current email address for the <strong>person who will be using the badge</strong></li>

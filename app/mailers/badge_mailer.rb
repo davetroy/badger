@@ -3,7 +3,7 @@ class BadgeMailer < ActionMailer::Base
  
   def please_edit(badge)
     @badge = badge
-    mail(:to => @badge.email,
+    mail(:to => @badge.full_email,
          :subject => "[TEDxMidAtlantic] Important: Please create a badge for #{badge.ticketholder}"),
          'X-Priority' => '1')
   end

@@ -49,7 +49,11 @@ class Badge < ActiveRecord::Base
   def bought_by_third_party?
     buyer!=ticketholder
   end
-    
+  
+  def full_email
+    "#{buyer} <#{email}>"
+  end
+  
   def to_param
     key
   end

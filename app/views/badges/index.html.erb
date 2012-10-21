@@ -1,37 +1,16 @@
 <h1>Listing badges</h1>
 
 <table>
-  <tr>
-    <th>Ticket</th>
-    <th>Firstname</th>
-    <th>Lastname</th>
-    <th>Company</th>
-    <th>About</th>
-    <th>Approved at</th>
-    <th>Key</th>
-    <th>Email</th>
-    <th>Twitter handle</th>
-    <th>Title</th>
-    <th>Badge type</th>
-    <th>Buyer firstname</th>
-    <th>Buyer lastname</th>
-    <th>Buyer email</th>
-    <th>Vegetarian</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
 <% @badges.each do |badge| %>
   <tr>
     <td><%= link_to badge.ticket_id, edit_badge_path(badge, :key => badge.key) %></td>
     <td><%= badge.firstname %></td>
     <td><%= badge.lastname %></td>
+    <td><%= badge.title %></td>
     <td><%= badge.company %></td>
     <td><%= badge.about %></td>
     <td><%= badge.approved_at %></td>
-    <td><%= badge.twitter_handle %></td>
-    <td><%= badge.title %></td>
     <td><%= badge.badge_type %></td>
     <td><%= link_to 'Show', badge %></td>
     <td><%= link_to 'Edit', edit_badge_path(badge) %></td>

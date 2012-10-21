@@ -10,10 +10,6 @@ set :user, application
 set :use_sudo, false
 set :deploy_to, "/home/#{application}"
 
-namespace :deploy do
-  task :restart do ; end
-end
-
 namespace :badges do
   desc "Push new badges to production"
   task :update do

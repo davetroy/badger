@@ -6,7 +6,9 @@ class Badge < ActiveRecord::Base
   
   
   def pass_name
-    if self.badge_type[/both/i]
+    if self.badge_type.blank?
+      "Guest"
+    elsif self.badge_type[/both/i]
       "2-Day Pass"
     elsif self.badge_type[/friday/i]
       "Friday Only"

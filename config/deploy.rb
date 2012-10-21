@@ -13,7 +13,13 @@ set :deploy_to, "/home/#{application}"
 namespace :badges do
   desc "Push new badges to production"
   task :update do
-    upload("/Users/davetroy/Downloads/Tickets.csv", "#{deploy_to}/tickets.csv")
+    upload("/Users/davetroy/Downloads/Tickets.csv", "/tmp/tickets.csv")
     run("cd #{deploy_to}/current && /usr/bin/env rake badges:import RAILS_ENV=production")
   end
+end
+
+namespace :deploy do
+   task :restart, :roles => :web, :except => { :no_release => true } do
+     run "touch #{File.join(current_path,'tmp','restart.txt')}"
+   end
 end

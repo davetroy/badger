@@ -1,19 +1,20 @@
-<h1>Listing badges</h1>
+<h1><%= @badges.count %> badges</h1>
 
 <table>
 
 <% @badges.each do |badge| %>
   <tr>
-    <td><%= link_to badge.ticket_id, edit_badge_path(badge, :key => badge.key) %></td>
+    <td><%= badge.ticket_id %></td>
     <td><%= badge.firstname %></td>
     <td><%= badge.lastname %></td>
+    <td><%= badge.buyer_firstname %></td>
+    <td><%= badge.buyer_lastname %></td>
     <td><%= badge.title %></td>
     <td><%= badge.company %></td>
-    <td><%= badge.about %></td>
     <td><%= badge.approved_at %></td>
     <td><%= badge.badge_type %></td>
     <td><%= link_to 'Show', badge %></td>
-    <td><%= link_to 'Edit', edit_badge_path(badge) %></td>
+    <td><%= link_to 'Edit', edit_badge_path(badge, :key => badge.key) %></td>
     <td><%= link_to 'Destroy', badge, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
   </tr>
 <% end %>

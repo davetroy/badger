@@ -22,6 +22,6 @@
 </div>
 <div id="preview_info">
 	This is a rough preview of your name badge. A final printed version will be ready for pickup at the event.<br/>
-	<a href="javascript:window.history.back();">Go back</a> to make changes or corrections. Otherwise you're all set! We'll see you at the show; just bring identification!
+	<%= link_to 'Go back', edit_badge_path(@badge, :key => @badge.key) %> to make changes or corrections. Otherwise you're all set! We'll see you at the show; just bring identification!
 </div>
 </center>

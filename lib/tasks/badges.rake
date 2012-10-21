@@ -3,7 +3,8 @@ require 'fastercsv'
 namespace :badges do
   desc 'Import badge data'
   task :import => :environment do
-    FasterCSV.foreach("#{Rails.root}/db/Tickets.csv") do |row|
+    tfile = "/tmp/tickets.csv"
+    FasterCSV.foreach(tfile) do |row|
       #Patron Email,Patron First Name,Patron Last Name,PerformanceID,Performance Name,Ticket Holder,Ticket Reclaimed,Ticket Number
       b_email, b_fn, b_ln, p_id, p_name, t_holder, reclaimed, t_id = row
       t_id = t_id.to_i
@@ -25,6 +26,8 @@ namespace :badges do
                 :ticket_id => t_id)
       p badge
     end
+    
+    File.rename(tfile, "/tmp/tickets.csv")
   end
       
 end

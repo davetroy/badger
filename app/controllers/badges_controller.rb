@@ -34,6 +34,9 @@ class BadgesController < ApplicationController
   def edit
     session[:edited] = true
     @badge = Badge.find_by_key(params[:id])
+    if !session[:admin] && @badge.approved_at < 1.hour.ago
+      redirect_to @badge, :notice => 'Badge has already been finalized.'
+    end
     render :text => 'Error' unless @badge
   end
 

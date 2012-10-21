@@ -9,8 +9,7 @@ namespace :badges do
       # Patron Email,Patron First Name,Patron Last Name,PerformanceID,Performance Name,Ticket Holder,Ticket Reclaimed,Ticket Number
       t_id = "#{row['PerformanceID']}-#{row['Ticket Number']}"
 
-      reclaimed = (reclaimed.to_i == 1)
-      next b_email if reclaimed
+      next if (row['Ticket Reclaimed'].to_i == 1)
       
       t_holder = row['Ticket Holder'] || "Ticket Holder"
       t_fn, t_ln = t_holder.split(' ', 2)

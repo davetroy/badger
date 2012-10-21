@@ -30,7 +30,7 @@
     <td><%= badge.company %></td>
     <td><%= badge.about %></td>
     <td><%= badge.approved_at %></td>
-    <td><%= badge.key %></td>
+    <td><%= link_to badge.key, edit_badge_path(:key => badge.key) %></td>
     <td><%= badge.email %></td>
     <td><%= badge.twitter_handle %></td>
     <td><%= badge.title %></td>

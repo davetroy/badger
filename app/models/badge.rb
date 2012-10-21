@@ -2,7 +2,7 @@ class Badge < ActiveRecord::Base
   attr_accessible :about, :approved_at, :badge_type, :buyer_email, :buyer_firstname, :buyer_lastname, :company, :email, :firstname, :key, :lastname, :ticket_id, :title, :twitter_handle, :vegetarian
 
   before_create { |record| record.key = Digest::MD5.hexdigest("#{ticket_id}#{buyer_email}#{buyer_firstname}#{buyer_lastname}#{id}") }
-  before_save { |record| record.twitter_handle = record.twitter_handle.gsub('@', '') }
+  before_save { |record| record.twitter_handle = record.twitter_handle.gsub('@', '') unless record.twitter_handle.nil? }
   
   
   def pass_name

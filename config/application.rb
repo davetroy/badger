@@ -64,14 +64,7 @@ module Badger
     }
 
     config.action_mailer.delivery_method = :smtp
-    config.action_mailer.smtp_settings = {
-      :address              => "smtp.gmail.com",
-      :port                 => 587,
-      :domain               => 'tedxmidatlantic.com',
-      :user_name            => 'applications@tedxmidatlantic.com',
-      :password             => 'tedxfoo2013',
-      :authentication       => 'plain',
-      :enable_starttls_auto => true  }
+
 
   end
 end

@@ -68,6 +68,10 @@ Badger::Application.configure do
 
   config.action_mailer.default_url_options = { :host => "badges.tedxmidatlantic.com" }
 
+  config.action_mailer.smtp_settings = {
+    :address              => "localhost",
+    :port                 => 25
+    }
 end
 
 ADMIN_PASSWORD = File.read('/home/badger/pw.txt').chomp

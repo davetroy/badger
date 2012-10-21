@@ -89,13 +89,13 @@ namespace :badges do
         msg.deliver
         badge.emailed_at = Time.now
         badge.save(:validate => false)
-        sleep 3
+        sleep 5
       rescue
         sleep 30
         retry
       end
       count += 1
-      break if count>10
+      break if count>20
     end
   end
 end

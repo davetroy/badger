@@ -89,7 +89,6 @@ namespace :badges do
         msg.deliver
         badge.emailed_at = Time.now
         badge.save(:validate => false)
-        sleep 5
       rescue => e
         puts e.message
         sleep 60

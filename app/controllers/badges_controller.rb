@@ -1,5 +1,5 @@
 class BadgesController < ApplicationController
-  http_basic_authenticate_with :name => "admin", :password => ADMIN_PASSWORD, :only => [:index, :new, :create]
+  http_basic_authenticate_with :name => "admin", :password => ADMIN_PASSWORD, :only => [:index, :new, :create, :destroy]
   
   # GET /badges
   # GET /badges.json
@@ -65,6 +65,12 @@ class BadgesController < ApplicationController
         format.html { render :action => "edit" }
       end
     end
+  end
+  
+  def destroy
+    @badge = Badge.find(params[:id])
+    @badge.destroy
+    redirect_to foos_url
   end
 
 end

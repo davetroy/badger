@@ -30,7 +30,7 @@ namespace :badges do
       end
       
       unless Badge.find_by_ticket_id(t_id)
-        badge = Badge.new(:buyer_email => row['Patrom Email'],
+        badge = Badge.new(:buyer_email => row['Patron Email'],
                 :buyer_firstname => row['Patron First Name'],
                 :buyer_lastname => row['Patron Last Name'],
                 :badge_type => b_type,
@@ -84,9 +84,9 @@ namespace :badges do
   task :email => :environment do
     count=0
     Badge.needs_update.each do |badge|
-      puts "emailing #{badge.buyer_email}, create badge for #{badge.ticketholder}"
-      BadgeMailer.please_edit(badge)
-      sleep 5
+      msg = BadgeMailer.please_edit(badge)
+      puts "To: #{msg.to} Subject: #{msg.subject}"
+      #sleep 5
       count += 1
       break if count>10
     end

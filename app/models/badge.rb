@@ -1,9 +1,8 @@
 class Badge < ActiveRecord::Base
   attr_accessible :about, :approved_at, :badge_type, :buyer_email, :buyer_firstname, :buyer_lastname, :company, :email, :firstname, :key, :lastname, :ticket_id, :title, :twitter_handle, :vegetarian
 
-  before_create { |record| record.key = Digest::MD5.hexdigest("#{ticket_id}#{buyer_email}#{buyer_firstname}#{buyer_lastname}#{email}#{id}") }
+  before_create { |record| record.key = Digest::MD5.hexdigest("#{ticket_id}#{buyer_email}#{buyer_firstname}#{buyer_lastname}#{email}#{id}"); record.ticket_id ||= "internal-#{Time.now.to_f}" }
   before_save { |record| record.twitter_handle = record.twitter_handle.gsub('@', '') unless record.twitter_handle.nil? }
-  after_create { |record| record.ticket_id ||= "internal-#{id}" }
   
   scope :needs_update, { :conditions => 'emailed_at IS NULL' }
   

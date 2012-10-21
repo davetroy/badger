@@ -5,34 +5,85 @@ namespace :badges do
   task :import => :environment do
     tfile = "/tmp/tickets.csv"
     created_count = 0
-    FasterCSV.foreach(tfile) do |row|
+    FasterCSV.foreach(tfile, :headers => true) do |row|
       # Patron Email,Patron First Name,Patron Last Name,PerformanceID,Performance Name,Ticket Holder,Ticket Reclaimed,Ticket Number
-      b_email, b_fn, b_ln, p_id, p_name, t_holder, reclaimed, t_id = row
-      t_id = t_id.to_i
-      next unless t_id > 0
-
-      t_id = "#{p_id}-#{t_id}"
+      t_id = "#{row['PerformanceID']}-#{row['Ticket Number']}"
 
       reclaimed = (reclaimed.to_i == 1)
       next b_email if reclaimed
       
-      t_holder ||= "Ticket Holder"
+      t_holder = row['Ticket Holder'] || "Ticket Holder"
       t_fn, t_ln = t_holder.split(' ', 2)
+      if t_ln && (t_ln[/^[A-Z]\.?\s(.*?)$/])
+        t_ln = $1
+      end
+      
+      b_type = case row['Performance Name']
+      when /friday/i
+        'Friday Only'
+      when /saturday/i
+        'Saturday Only'
+      when /both/i
+        'Both Days'
+      when /918/i
+        'Party Only'
+      end
       
       unless Badge.find_by_ticket_id(t_id)
-        Badge.create!(:buyer_email => b_email,
-                :buyer_firstname => b_fn,
-                :buyer_lastname => b_ln,
-                :badge_type => p_name,
+        badge = Badge.new(:buyer_email => row['Patrom Email'],
+                :buyer_firstname => row['Patron First Name'],
+                :buyer_lastname => row['Patron Last Name'],
+                :badge_type => b_type,
                 :firstname => t_fn,
                 :lastname => t_ln,
-                :email => b_email,
+                :email => row['Patron Email'],
                 :ticket_id => t_id)
-        puts "created #{t_id} #{t_fn} #{t_ln}"
+        badge.save(:validate => false)
+        puts "created #{badge.ticket_id} #{badge.ticketholder}"
+        created_count += 1
+      end
+    end
+    puts "Added #{created_count} new badges"
+  end   
+end
+
+namespace :badges do
+  desc 'Import eventbrite data'
+  task :import_eventbrite => :environment do
+    tfile = "/tmp/attendees.csv"
+    created_count = 0
+    FasterCSV.foreach(tfile, :headers => true) do |row|
+      t_id = "vol-#{row['Attendee #']}"
+      #["Home Country", "Home Address 2", "Home Address 1", "Order #", "CC Processing (USD)", "Twitter Username", "Order Type", "Ticket Type", "Last Name", "Date", 
+      #"Company", "Talk to Me About (will appear on badge; 3 words only):", "Home Zip", "Home City", "QTY", "Attendee #", "Eventbrite Fees (USD)", "Fees Paid (USD)",
+      #"Job Title", "Home State", "Attendee Status", "Group", "Date Attending", "Email", "T-shirt size (unisex):", "Total Paid (USD)", "First Name"]
+      unless Badge.find_by_ticket_id(t_id)
+        badge = Badge.new(:buyer_email => row['Email'],
+                :buyer_firstname => row['First Name'],
+                :buyer_lastname => row['Last Name'],
+                :badge_type => 'Volunteer',
+                :firstname => row['First Name'],
+                :lastname => row['Last Name'],
+                :email => row['Email'],
+                :about => row['Talk to Me About (will appear on badge; 3 words only):'],
+                :twitter_handle => row['Twitter Username'],
+                :company => row['Company'],
+                :title => row['Job Title'],
+                :ticket_id => t_id)
+        badge.save(:validate => false)        
+        puts "created #{t_id} #{badge.ticketholder}"
         created_count += 1
       end
     end
     puts "Added #{created_count} new badges"
   end
-      
+end
+
+namespace :badges do
+  desc "Email people"
+  task :email => :environment do
+    Badge.needs_update.each do |badge|
+      puts "emailing #{badge.buyer_email}, create badge for #{badge.ticketholder}"
+    end
+  end
 end

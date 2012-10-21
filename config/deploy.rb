@@ -26,9 +26,3 @@ namespace :deploy do
    end
 end
 
-namespace :badges do
-  desc "Email people"
-  task :email do
-    
-  end
-end

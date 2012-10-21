@@ -16,12 +16,12 @@
 		<div class="about"><%=@badge.about%></div>
 	<% end %>
 	
-	<div class="attendee">Attendee</div>
+	<div class="<%=@badge.badge_class.downcase%>"><%=@badge.badge_class%></div>
 
 	<div class="pass"><%=@badge.pass_name%></div>
 </div>
 <div id="preview_info">
 	This is a rough preview of your name badge. A final printed version will be ready for pickup at the event.<br/>
-	<%= link_to 'Go back', edit_badge_path(@badge, :key => @badge.key) %> to make changes or corrections. Otherwise you're all set! We'll see you at the show; just bring identification!
+	<%= link_to 'Click here', edit_badge_path(@badge, :key => @badge.key) %> to make changes or corrections. Otherwise you're all set! We'll see you at the show; just bring identification!
 </div>
 </center>

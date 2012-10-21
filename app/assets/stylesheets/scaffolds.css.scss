@@ -8,7 +8,6 @@ body {
 p, ol, ul, td {
   font-family: helvetica, arial, sans-serif;
   font-size: 13px;
-  line-height: 18px;
 }
 
 pre {
@@ -28,20 +27,9 @@ a {
   }
 }
 
-div {
-  &.field, &.actions {
-    margin-bottom: 10px;
-  }
-}
 
 #notice {
   color: green;
-}
-
-.field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table;
 }
 
 #error_explanation {

@@ -1,7 +1,10 @@
 class BadgesController < ApplicationController
+  http_basic_authenticate_with :name => "admin", :password => ADMIN_PASSWORD, :only => [:index, :new, :create]
+  
   # GET /badges
   # GET /badges.json
   def index
+    session[:admin] = true
     @badges = Badge.all
 
     respond_to do |format|
@@ -13,12 +16,7 @@ class BadgesController < ApplicationController
   # GET /badges/1
   # GET /badges/1.json
   def show
-    @badge = Badge.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render :json => @badge }
-    end
+    @badge = Badge.find_by_key(params[:id])
   end
 
   # GET /badges/new
@@ -32,9 +30,10 @@ class BadgesController < ApplicationController
     end
   end
 
-  # GET /:key
+  # GET /:id
   def edit
-    @badge = Badge.find_by_key(params[:key])
+    session[:edited] = true
+    @badge = Badge.find_by_key(params[:id])
     render :text => 'Error' unless @badge
   end
 
@@ -57,15 +56,13 @@ class BadgesController < ApplicationController
   # PUT /badges/1
   # PUT /badges/1.json
   def update
-    @badge = Badge.find_by_key(params['badge']['key'])
+    @badge = Badge.find_by_key(params['id'])
 
     respond_to do |format|
       if @badge.update_attributes(params[:badge])
         format.html { redirect_to @badge, :notice => 'Badge was successfully updated.' }
-        format.json { head :no_content }
       else
         format.html { render :action => "edit" }
-        format.json { render :json => @badge.errors, :status => :unprocessable_entity }
       end
     end
   end

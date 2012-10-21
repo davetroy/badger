@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #badge {
-		width: 800px;
+		width: 850px;
 		margin: 25px;
 		padding: 20px;
 		background-color: #eee;
@@ -11,7 +11,7 @@
 		font-size: 15px;
 }
 #extras {
-		width: 800px;
+		width: 850px;
 		margin: 25px;
 		padding: 20px;
 		background-color: #eee;
@@ -31,6 +31,22 @@ input[type="text"] {
 	padding: 8px;
 	margin: 10px;
 }
+
+input.error {
+	border: none;
+  	background: #f8ada9;
+	height: 25px;
+	font-size: 23px;
+	padding: 8px;
+	margin: 10px;
+}
+
+
+select {
+	margin: 14px 0px 14px 14px;
+	font-size: 23px;
+}
+
 
 input[type="checkbox"] {
 	padding: 0px;
@@ -132,6 +148,62 @@ div.attendee {
 	font-size: 22px;
 	height: 30px;
 	background-color: #e37436;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 843px;
+	padding: 12px 12px 12px 45px;
+}
+
+div.volunteer {
+	text-align: left;
+	text-transform: uppercase;
+	font-weight: 700;
+	font-size: 22px;
+	height: 30px;
+	background-color: #3687e3;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 843px;
+	padding: 12px 12px 12px 45px;
+}
+
+div.staff {
+	text-align: left;
+	text-transform: uppercase;
+	font-weight: 700;
+	font-size: 22px;
+	height: 30px;
+	background-color: #0e9b0e;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 843px;
+	padding: 12px 12px 12px 45px;
+}
+
+div.speaker {
+	text-align: left;
+	text-transform: uppercase;
+	font-weight: 700;
+	font-size: 22px;
+	height: 30px;
+	background-color: #9f26c2;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 843px;
+	padding: 12px 12px 12px 45px;
+}
+
+div.party {
+	text-align: left;
+	text-transform: uppercase;
+	font-weight: 700;
+	font-size: 22px;
+	height: 30px;
+	background-color: #15c2f4;
 	position: absolute;
 	bottom: 0;
 	left: 0;

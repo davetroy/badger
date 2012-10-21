@@ -26,5 +26,5 @@ namespace :badges do
       p badge
     end
   end
-  
+      
 end

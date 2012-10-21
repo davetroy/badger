@@ -13,3 +13,11 @@ set :deploy_to, "/home/#{application}"
 namespace :deploy do
   task :restart do ; end
 end
+
+namespace :badges do
+  desc "Push new badges to production"
+  task :update do
+    upload("/Users/davetroy/Downloads/Tickets.csv", "#{deploy_to}/tickets.csv")
+    run("cd #{deploy_to}/current && /usr/bin/env rake badges:import RAILS_ENV=production")
+  end
+end

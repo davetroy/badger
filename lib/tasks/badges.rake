@@ -7,8 +7,10 @@ namespace :badges do
     FasterCSV.foreach(tfile) do |row|
       # Patron Email,Patron First Name,Patron Last Name,PerformanceID,Performance Name,Ticket Holder,Ticket Reclaimed,Ticket Number
       b_email, b_fn, b_ln, p_id, p_name, t_holder, reclaimed, t_id = row
-      t_id = "#{p_id}-#{t_id}"
+      t_id = t_id.to_i
       next unless t_id > 0
+
+      t_id = "#{p_id}-#{t_id}"
 
       reclaimed = (reclaimed.to_i == 1)
       next b_email if reclaimed

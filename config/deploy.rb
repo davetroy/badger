@@ -25,3 +25,10 @@ namespace :deploy do
      run "touch #{File.join(current_path,'tmp','restart.txt')}"
    end
 end
+
+namesoace :badges do
+  desc "Email people"
+  task :email do
+    
+  end
+end

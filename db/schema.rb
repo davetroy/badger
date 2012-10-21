@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20121020181539) do
     t.string   "buyer_lastname"
     t.string   "buyer_email"
     t.boolean  "vegetarian"
+    t.datetime "emailed_at"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end

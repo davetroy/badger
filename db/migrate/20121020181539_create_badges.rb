@@ -16,7 +16,8 @@ class CreateBadges < ActiveRecord::Migration
       t.string :buyer_lastname
       t.string :buyer_email
       t.boolean :vegetarian
-
+      t.datetime :emailed_at
+      
       t.timestamps
     end
     

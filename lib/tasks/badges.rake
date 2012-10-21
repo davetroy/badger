@@ -87,9 +87,12 @@ namespace :badges do
       msg = BadgeMailer.please_edit(badge)
       puts "To: #{msg.to} Subject: #{msg.subject}"
       begin
-        # msg.deliver
+        msg.deliver
+        badge.emailed_at = Time.now
+        badge.save(:validate => false)
       rescue
         sleep 30
+        retry
       end
       count += 1
       break if count>10

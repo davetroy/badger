@@ -38,6 +38,10 @@ input[type="checkbox"] {
 	width: 15px;
 }
 
+div {
+	text-align: left;
+}
+
 div.actions {
 	text-align: center;
 	font-size: 25px;
@@ -118,9 +122,11 @@ div.about {
 	color: black;
 	padding: 8px 30px 8px 14px;
 	border-left: 4px solid green;
+	text-align: left;
 }
 
 div.attendee {
+	text-align: left;
 	text-transform: uppercase;
 	font-weight: 700;
 	font-size: 22px;

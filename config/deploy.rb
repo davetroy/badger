@@ -26,7 +26,7 @@ namespace :deploy do
    end
 end
 
-namesoace :badges do
+namespace :badges do
   desc "Email people"
   task :email do
     

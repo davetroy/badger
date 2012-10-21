@@ -81,7 +81,6 @@ end
 namespace :badges do
   desc "Email people"
   task :email => :environment do
-    count=0
     Badge.needs_update.each do |badge|
       msg = BadgeMailer.please_edit(badge)
       puts "To: #{msg.to} Subject: #{msg.subject}"
@@ -94,8 +93,6 @@ namespace :badges do
         sleep 60
         retry
       end
-      count += 1
-      break if count>20
     end
   end
 end

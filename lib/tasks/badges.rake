@@ -5,9 +5,9 @@ namespace :badges do
   task :import => :environment do
     tfile = "/tmp/tickets.csv"
     FasterCSV.foreach(tfile) do |row|
-      #Patron Email,Patron First Name,Patron Last Name,PerformanceID,Performance Name,Ticket Holder,Ticket Reclaimed,Ticket Number
+      # Patron Email,Patron First Name,Patron Last Name,PerformanceID,Performance Name,Ticket Holder,Ticket Reclaimed,Ticket Number
       b_email, b_fn, b_ln, p_id, p_name, t_holder, reclaimed, t_id = row
-      t_id = t_id.to_i
+      t_id = "#{p_id}-#{t_id}"
       next unless t_id > 0
 
       reclaimed = (reclaimed.to_i == 1)
@@ -25,9 +25,7 @@ namespace :badges do
                 :email => b_email,
                 :ticket_id => t_id)
       p badge
-    end
-    
-    File.rename(tfile, "/tmp/tickets.csv")
+    end    
   end
       
 end

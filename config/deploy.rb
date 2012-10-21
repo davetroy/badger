@@ -13,7 +13,9 @@ set :deploy_to, "/home/#{application}"
 namespace :badges do
   desc "Push new badges to production"
   task :update do
-    upload("/Users/davetroy/Downloads/Tickets.csv", "/tmp/tickets.csv")
+    sfile = "/Users/davetroy/Downloads/Tickets.csv"
+    upload(sfile, "/tmp/tickets.csv")
+    File.rename(sfile, "/tmp/tickets.csv")
     run("cd #{deploy_to}/current && /usr/bin/env rake badges:import RAILS_ENV=production")
   end
 end

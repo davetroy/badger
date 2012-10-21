@@ -1,7 +1,7 @@
 class CreateBadges < ActiveRecord::Migration
   def change
     create_table :badges do |t|
-      t.integer :ticket_id
+      t.string :ticket_id
       t.string :firstname
       t.string :lastname
       t.string :company
@@ -19,5 +19,8 @@ class CreateBadges < ActiveRecord::Migration
 
       t.timestamps
     end
+    
+    add_index :badges, :key
+    add_index :badges, :ticket_id
   end
 end

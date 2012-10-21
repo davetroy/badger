@@ -86,7 +86,11 @@ namespace :badges do
     Badge.needs_update.each do |badge|
       msg = BadgeMailer.please_edit(badge)
       puts "To: #{msg.to} Subject: #{msg.subject}"
-      #sleep 5
+      begin
+        # msg.deliver
+      rescue
+        sleep 30
+      end
       count += 1
       break if count>10
     end

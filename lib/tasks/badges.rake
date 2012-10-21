@@ -90,8 +90,9 @@ namespace :badges do
         badge.emailed_at = Time.now
         badge.save(:validate => false)
         sleep 5
-      rescue
-        sleep 30
+      rescue => e
+        puts e.message
+        sleep 60
         retry
       end
       count += 1

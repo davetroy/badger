@@ -57,7 +57,7 @@ class BadgesController < ApplicationController
   # PUT /badges/1.json
   def update
     @badge = Badge.find_by_key(params['id'])
-
+    @badge.approved_at = Time.now unless session[:admin]
     respond_to do |format|
       if @badge.update_attributes(params[:badge])
         format.html { redirect_to @badge, :notice => 'Badge was successfully updated.' }

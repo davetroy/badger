@@ -5,6 +5,7 @@ class Badge < ActiveRecord::Base
   before_save { |record| record.twitter_handle = record.twitter_handle.gsub('@', '') unless record.twitter_handle.nil? }
   
   scope :needs_update, { :conditions => 'emailed_at IS NULL' }
+  scope :approved, { :conditions => 'approved_at IS NOT NULL' }
   
   validates_presence_of :firstname, :lastname, :email
   

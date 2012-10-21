@@ -29,7 +29,7 @@ namespace :badges do
                 :email => b_email,
                 :ticket_id => t_id)
         puts "created #{t_id} #{t_fn} #{t_ln}"
-        created += 1
+        created_count += 1
       end
     end
     puts "Added #{created_count} new badges"

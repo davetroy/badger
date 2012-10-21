@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(:version => 20121020181539) do
 
   create_table "badges", :force => true do |t|
-    t.integer  "ticket_id"
+    t.string  "ticket_id"
     t.string   "firstname"
     t.string   "lastname"
     t.string   "company"

@@ -23,24 +23,33 @@ class Badge < ActiveRecord::Base
     end
   end
   
+  def buyer
+    "#{buyer_firstname} #{buyer_lastname}"
+  end
+  
   def ticketholder
     "#{firstname} #{lastname}"
   end
   
   def badge_class
-    if self.badge_type[/volunteer/i]
+    case self.badge_type
+    when /volunteer/i
       "Volunteer"
-    elsif self.badge_type[/staff/i]
+    when /staff/i
       "Staff"
-    elsif self.badge_type[/speaker/i]
+    when /speaker/i
       "Speaker"
-    elsif self.badge_type[/party/i]
+    when /party/i
       "Party"
     else
       "Attendee"
     end
   end
   
+  def bought_by_third_party?
+    buyer!=ticketholder
+  end
+    
   def to_param
     key
   end

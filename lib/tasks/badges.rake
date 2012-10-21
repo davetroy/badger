@@ -82,8 +82,13 @@ end
 namespace :badges do
   desc "Email people"
   task :email => :environment do
+    count=0
     Badge.needs_update.each do |badge|
       puts "emailing #{badge.buyer_email}, create badge for #{badge.ticketholder}"
+      BadgeMailer.please_edit(badge)
+      sleep 5
+      count += 1
+      break if count>10
     end
   end
 end

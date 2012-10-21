@@ -1,9 +1,8 @@
 class BadgeMailer < ActionMailer::Base
-  default :from => "badges@tedxmidatlantic.com"
+  default :from => "TEDxMidAtlantic Applications <applications@tedxmidatlantic.com>"
  
-  def welcome_email(badge)
-    @user = user
-    @url  = "http://example.com/login"
-    mail(:to => badge.email, :subject => "Welcome to My Awesome Site")
+  def please_edit(badge)
+    @badge = badge
+    mail(:to => @badge.email, :subject => "[TEDxMidAtlantic] Urgent: Please create a badge for #{badge.ticketholder}")
   end
 end

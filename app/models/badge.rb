@@ -98,7 +98,7 @@ class Badge < ActiveRecord::Base
   
   def export
     File.open(filename, 'a') do |f|
-      f.write "#{self.to_csv}\n"
+      f.write self.to_csv
     end
   end 
    

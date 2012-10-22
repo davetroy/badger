@@ -91,4 +91,13 @@ namespace :badges do
     end
   end
   
+  desc "Export badge"
+  task :nag_list => :environment do
+    Badge.needs_update.each do |b|
+      line = [@badge.buyer_firstname || @badge.firstname, b.firstname,b.lastname,b.key]
+      puts FasterCSV.generate_line(line)
+    end
+  end
+
+  
 end

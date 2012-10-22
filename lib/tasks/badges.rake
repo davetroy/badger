@@ -91,13 +91,25 @@ namespace :badges do
     end
   end
   
-  desc "Export badge"
+  desc "Export nag list"
   task :nag_list => :environment do
     Badge.needs_update.each do |b|
       line = [b.buyer_firstname || b.firstname, b.firstname,b.lastname,b.email,b.key]
       puts FasterCSV.generate_line(line)
     end
   end
-
+  
+  desc "Export batch"
+  task :batch => :environment do
+    batch = Badge.maximum(:batch) || 0
+    batch += 1
+    puts "next batch is #{batch}"
+    Badge.update_all("batch=#{batch}", ['approved_at < ?', 1.hour.ago])
+    Badge.where("batch=#{batch}").each do |b|
+      b.export
+    end    
+  end
   
 end
+
+

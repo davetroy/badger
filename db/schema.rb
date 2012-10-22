@@ -10,10 +10,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121020181539) do
+ActiveRecord::Schema.define(:version => 20121022203113) do
 
   create_table "badges", :force => true do |t|
-    t.string  "ticket_id"
+    t.string   "ticket_id"
     t.string   "firstname"
     t.string   "lastname"
     t.string   "company"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20121020181539) do
     t.datetime "emailed_at"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.integer  "batch"
   end
 
 end

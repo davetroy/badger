@@ -1,3 +1,5 @@
+require 'FasterCSV'
+
 class Badge < ActiveRecord::Base
   attr_accessible :about, :approved_at, :badge_type, :buyer_email, :buyer_firstname, :buyer_lastname, :company, :email, :firstname, :key, :lastname, :ticket_id, :title, :twitter_handle, :vegetarian
 
@@ -82,4 +84,22 @@ class Badge < ActiveRecord::Base
     key
   end
   
+  def to_csv
+    FasterCSV.generate_line([ticket_id, firstname, lastname, title, company, about, twitter_handle, badge_type])
+  end
+  
+  def filename
+    if self.about.blank?
+      "#{Rails.root}/public/#{badge_type.parameterize}-#{batch}.csv"
+    else
+      "#{Rails.root}/public/#{badge_type.parameterize}-about-#{batch}.csv"      
+    end
+  end
+  
+  def export
+    File.open(filename, 'a') do |f|
+      f.write "#{self.to_csv}\n"
+    end
+  end 
+   
 end

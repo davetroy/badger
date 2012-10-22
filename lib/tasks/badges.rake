@@ -76,23 +76,19 @@ namespace :badges do
     end
     puts "Added #{created_count} new badges"
   end
-end
 
-namespace :badges do
-  desc "Email people"
-  task :email => :environment do
+  desc "Remind people"
+  task :nag_email => :environment do
     Badge.needs_update.each do |badge|
-      msg = BadgeMailer.please_edit(badge)
-      puts "To: #{msg.to} Subject: #{msg.subject}"
-      begin
-        msg.deliver
-        badge.emailed_at = Time.now
-        badge.save(:validate => false)
-      rescue => e
-        puts e.message
-        sleep 60
-        retry
-      end
+      badge.send_email
     end
   end
+
+  desc "Notify people"
+  task :notify_email => :environment do
+    Badge.never_emailed.each do |badge|
+      badge.send_email
+    end
+  end
+  
 end

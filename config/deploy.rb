@@ -6,7 +6,7 @@ set :deploy_via, :remote_cache
 set :keep_releases, 3
 
 role :web, '66.159.72.200'
-role :db, '66.159.72.200'
+role :db, '66.159.72.200', :primary => true
 set :user, application
 set :use_sudo, false
 set :deploy_to, "/home/#{application}"

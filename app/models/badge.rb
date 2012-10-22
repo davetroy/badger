@@ -1,5 +1,3 @@
-require 'FasterCSV'
-
 class Badge < ActiveRecord::Base
   attr_accessible :about, :approved_at, :badge_type, :buyer_email, :buyer_firstname, :buyer_lastname, :company, :email, :firstname, :key, :lastname, :ticket_id, :title, :twitter_handle, :vegetarian
 

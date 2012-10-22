@@ -25,7 +25,7 @@
 	<%= f.text_field :twitter_handle, :placeholder => 'Twitter Handle (@username)' %> Your Twitter Handle (if available)<br/>
 
 	<% if session[:admin] %>
-		<%= f.select :badge_type, options_for_select(['Staff', 'Volunteer', 'Speaker', 'Both Days', 'Friday Only', 'Saturday Only', 'Party Only', 'Guest'], :selected => @badge.badge_type)%>
+		<%= f.select :badge_type, options_for_select(['Staff', 'Volunteer', 'Speaker', 'Both Days', 'Friday Only', 'Saturday Only', 'Party Only', 'Guest', 'Sponsor'], :selected => @badge.badge_type)%>
 	<% end %>
   </div>
  

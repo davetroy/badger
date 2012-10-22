@@ -6,6 +6,8 @@ class BadgesController < ApplicationController
   def index
     session[:admin] = true
     @badges = Badge.all
+    @fri_count = Badge.select { |b| b.friday? }.size
+    @sat_count = Badge.select { |b| b.saturday? }.size
 
     respond_to do |format|
       format.html # index.html.erb
@@ -75,5 +77,5 @@ class BadgesController < ApplicationController
     @badge.destroy
     redirect_to badges_url
   end
-
+  
 end

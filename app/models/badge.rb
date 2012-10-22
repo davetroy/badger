@@ -4,7 +4,7 @@ class Badge < ActiveRecord::Base
   before_create { |record| record.key = Digest::MD5.hexdigest("#{ticket_id}#{buyer_email}#{buyer_firstname}#{buyer_lastname}#{firstname}#{lastname}#{company}#{email}#{id}"); record.ticket_id ||= "internal-#{Time.now.to_f}" }
   before_save { |record| record.twitter_handle = record.twitter_handle.gsub('@', '') unless record.twitter_handle.nil? }
   
-  scope :needs_update, { :conditions => 'emailed_at IS NULL' }
+  scope :needs_update, { :conditions => 'approved_at IS NULL' }
   scope :approved, { :conditions => 'approved_at IS NOT NULL' }
   
   validates_presence_of :firstname, :lastname, :email

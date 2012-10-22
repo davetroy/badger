@@ -70,6 +70,13 @@ class Badge < ActiveRecord::Base
     end
   end
   
+  def friday?
+    badge_type[/(both|friday|volunteer|staff|speaker|sponsor|guest)/i.freeze]
+  end
+  
+  def saturday?
+    badge_type[/(both|saturday|volunteer|staff|speaker|sponsor|guest)/i.freeze]
+  end
   
   def to_param
     key

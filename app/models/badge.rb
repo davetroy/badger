@@ -71,11 +71,11 @@ class Badge < ActiveRecord::Base
   end
   
   def friday?
-    badge_type[/(both|friday|volunteer|staff|speaker|sponsor|guest)/i.freeze]
+    !badge_type[/saturday/i.freeze]
   end
   
   def saturday?
-    badge_type[/(both|saturday|volunteer|staff|speaker|sponsor|guest)/i.freeze]
+    !badge_type[/friday/i.freeze]
   end
   
   def to_param
@@ -86,11 +86,17 @@ class Badge < ActiveRecord::Base
     FasterCSV.generate_line([ticket_id, firstname, lastname, title, company, about, twitter_handle, badge_type])
   end
   
+  def export_dir
+    @export_dir ||= "/home/badger/csv/#{self.batch}"
+    Dir.mkdir(@export_dir) unless File.exist?(@export_dir)
+    @export_dir
+  end
+  
   def filename
     if self.about.blank?
-      "#{Rails.root}/public/#{badge_type.parameterize}-#{batch}.csv"
+      "#{export_dir}/#{badge_type.parameterize}.csv"
     else
-      "#{Rails.root}/public/#{badge_type.parameterize}-about-#{batch}.csv"      
+      "#{export_dir}/#{badge_type.parameterize}-about.csv"      
     end
   end
   

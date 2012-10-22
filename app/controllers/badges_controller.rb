@@ -5,7 +5,7 @@ class BadgesController < ApplicationController
   # GET /badges.json
   def index
     session[:admin] = true
-    @badges = Badge.all
+    @badges = Badge.order('approved_at desc,id')
     @fri_count = Badge.select { |b| b.friday? }.size
     @sat_count = Badge.select { |b| b.saturday? }.size
 

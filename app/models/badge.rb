@@ -11,7 +11,7 @@ class Badge < ActiveRecord::Base
   
   def pass_name
     case self.badge_type
-      when /(both|volunteer|speaker|staff)/i
+      when /(both|volunteer|speaker|staff|sponsor)/i
         "2-Day Pass"
       when /friday/i
         "Friday Only"
@@ -42,6 +42,8 @@ class Badge < ActiveRecord::Base
       "Speaker"
     when /party/i
       "Party"
+    when /sponsor/i
+      "Sponsor"
     else
       "Attendee"
     end

@@ -1,5 +1,6 @@
 Badger::Application.routes.draw do
 
+  match ':id/edit' => 'badges#edit'
   resources :badges
 
   # The priority is based upon order of creation:

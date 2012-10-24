@@ -98,11 +98,12 @@ class Badge < ActiveRecord::Base
   end
   
   def filename
-    if self.about.blank?
-      "#{export_dir}/#{badge_type.parameterize}.csv"
-    else
-      "#{export_dir}/#{badge_type.parameterize}-about.csv"      
-    end
+    "#{export_dir}/#{badge_type.parameterize}.csv"
+    # if self.about.blank?
+    #   "#{export_dir}/#{badge_type.parameterize}.csv"
+    # else
+    #   "#{export_dir}/#{badge_type.parameterize}-about.csv"      
+    # end
   end
   
   def export

@@ -104,7 +104,8 @@ namespace :badges do
     batch = Badge.maximum(:batch) || 0
     batch += 1
     puts "next batch is #{batch}"
-    Badge.update_all("batch=#{batch}", ['approved_at < ? AND batch IS NULL', 1.hour.ago])
+    # Badge.update_all("batch=#{batch}", ['approved_at < ? AND batch IS NULL', 1.hour.ago])
+    Badge.update_all("batch=#{batch}", 'batch IS NULL')
     Badge.where("batch=#{batch}").each do |b|
       b.export
     end    

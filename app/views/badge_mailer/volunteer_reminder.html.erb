@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+	<style type="text/css">
+		body{
+			font-family:Helvetica, Arial, sans-serif;
+			background-color:#ffffff;
+			margin: 20px;
+		}
+		a{
+			color:#ff0000;
+			text-decoration:none;
+		}
+		img{
+			border:0;
+			display:block;
+		}
+		p.intro {
+			font-weight: bold;
+		}
+		span.uline {
+			text-decoration: underline;
+		}
+		li {
+			margin-bottom:6px;
+		}
+		#wrapper {
+			width: 750px;
+		}
+	</style>
+  </head>
+  <body>
+	<div id="wrapper">
+	<img src="http://beta.tedxmidatlantic.com/wp-content/uploads/2012/07/logo.png" width="284" height="47" alt="TEDxMidAtlantic" style="border: 0;display: block;">
+	
+	<p>Dear <%=@badge.firstname%>,</p>
+	
+    <p class="intro">
+		This is a reminder about today's mandatory meeting for all TEDxMidAtlantic staff, volunteers, and crew.
+    </p>
+	<ul>
+		<li>The meeting will begin at 5pm. Stacie Blanke, Ramy Nassar, Elizabeth Terrell and Jennifer Troy will be acting as volunteer coordinators and will lead the meeting.</li>
+		<li>Please plan to arrive by 4:45pm. Reminder: the Washington International Horse Show is in town; <strong>F Street is closed in front of the theater.</strong>
+		<li>You should be prepared to work <strong>at least two</strong> 4-hour shifts on either Friday or Saturday.</li>
+		<li><strong>The show is oversold.</strong> Volunteers and other complimentary ticketholders will be seated in the theater on a space-available basis. <span class="uline">Paid ticketholders have precedence in all cases.</span></li>
+	</ul>
+	
+	We strongly recommend that you take Metro or other public transportation, but if you must park, see this <a href="http://www.shakespearetheatre.org/info/visit/finding-us/parking">list of parking options</a> from the Harman Theater.
+			
+    <p>See you this afternoon!</p>
+
+	<p>Sincerely,</p>
+	<p><strong>The TEDxMidAtlantic Team</strong></p>
+  </body>
+</html>

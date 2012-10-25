@@ -7,4 +7,12 @@ class BadgeMailer < ActionMailer::Base
          :subject => "[TEDxMidAtlantic] Important: Please create a badge for #{badge.ticketholder}",
          'X-Priority' => '1')
   end
+  
+  def volunteer_reminder(badge)
+    @badge = badge
+    mail(:from => "TEDxMidAtlantic Team <contact@tedxmidatlantic.com>",
+         :to => @badge.full_email,
+         :subject => "[TEDxMidAtlantic] Reminder: Staff and Volunteer mandatory meeting 5pm TODAY")
+  end
+  
 end

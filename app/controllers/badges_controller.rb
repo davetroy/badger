@@ -26,11 +26,14 @@ class BadgesController < ApplicationController
   
   def logo
     @badge = Badge.find_by_key(params[:id])
-    format.png do
-      self.logo_seen += 1
-      self.save
-      render :file => 'assets/logo.png'
-    end    
+    respond_to do |format|
+      format.png do
+        @badge.logo_count += 1
+        @badge.save
+        fn = Rails.root.join("app/assets/images", "logo.png")
+        send_file fn, :type => 'image/png', :dispostion => 'inline'
+      end
+    end
   end
 
   # GET /badges/new

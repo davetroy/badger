@@ -22,7 +22,7 @@ group :assets do
 end
 
 gem 'execjs'
-#gem 'therubyracer'
+gem 'therubyracer'
 
 gem 'jquery-rails'
 

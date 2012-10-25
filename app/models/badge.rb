@@ -8,7 +8,7 @@ class Badge < ActiveRecord::Base
   scope :needs_update, { :conditions => 'emailed_at IS NOT NULL AND approved_at IS NULL' }
   scope :approved, { :conditions => 'approved_at IS NOT NULL' }
   scope :never_emailed, { :conditions => 'emailed_at IS NULL' }
-  scope :volunteers, { :conditions => ["badge_type IN (?)", ['volunteer', 'staff', 'crew']] }
+  scope :team, { :conditions => ["badge_type IN (?)", ['volunteer', 'staff', 'crew']] }
   
   validates_presence_of :firstname, :lastname, :email
   

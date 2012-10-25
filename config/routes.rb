@@ -2,7 +2,7 @@ Badger::Application.routes.draw do
 
   match ':id/edit' => 'badges#edit'
   resources :badges
-  match ':id/logo', :as => :logo
+  match ':id/logo' => 'badges#logo', :as => :logo
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

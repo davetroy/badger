@@ -9,7 +9,7 @@ class Badge < ActiveRecord::Base
   scope :approved, { :conditions => 'approved_at IS NOT NULL' }
   scope :never_emailed, { :conditions => 'emailed_at IS NULL' }
   scope :team, { :conditions => ["badge_type IN (?)", ['volunteer', 'staff', 'crew']] }
-  
+  scope :speakers, { :conditions => ['badge_type=?', 'speaker'] }
   validates_presence_of :firstname, :lastname, :email
   
   def pass_name

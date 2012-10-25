@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+	<style type="text/css">
+		body{
+			font-family:Helvetica, Arial, sans-serif;
+			background-color:#ffffff;
+			margin: 20px;
+		}
+		a{
+			color:#ff0000;
+			text-decoration:none;
+		}
+		img{
+			border:0;
+			display:block;
+		}
+		p.intro {
+			font-weight: bold;
+		}
+		span.uline {
+			text-decoration: underline;
+		}
+		li {
+			margin-bottom:8px;
+		}
+		#wrapper {
+			width: 750px;
+		}
+	</style>
+  </head>
+  <body>
+	<div id="wrapper">
+	<img src="<%=logo_url(@badge)%>" width="284" height="47" alt="TEDxMidAtlantic" style="border: 0;display: block;">
+	
+	<p>Dear <%=@badge.firstname%>,</p>
+	
+    <p class="intro">
+		We just wanted to give you a quick rundown of what's happening at TEDxMidAtlantic over the next three days.
+    </p>
+	<ul>
+		<li><strong>Your Presentation:</strong> Please be sure to report to the theater at least <span class="uline">one hour</span> prior to your scheduled presentation time. Check in with the registration desk and our volunteers will take you backstage.</li>
+		<li><strong>Today:</strong> We have already seen many of you for rehearsals and run-throughs. If your rehearsal is scheduled for later today, we'll see you then!</li>
+		<li><strong>Tonight:</strong> We hope you'll be able to join us for our exclusive speaker dinner hosted at José Andres' <a href="http://www.zaytinya.com">Zaytinya</a> (701 9th Street NW) starting at 8:00pm. If you have not yet RSVP'd <a href="mailto:contact@tedxmidatlantic.com">please email us now</a> to let us know if you're coming.</strong>
+		<li><strong>Friday:</strong> The show will run from 9:30am to 6:00pm. You are invited (and encouraged) to attend the whole day.</li>
+		<li><strong>Friday Night:</strong> Please join us for our <em>Be Fearless</em> reception at Living Social's amazing event space at 918 F St. NW. The party will run from 6-10pm and will feature great food, drinks, music, and a few special surprises!</li>
+		<li><strong>Saturday:</strong> The show will run from 9:30am to 6:00pm. You are invited (and encouraged) to attend the whole day. We'll also have a closing reception from 6-8pm at the Harman Theater.</li>
+		<li><strong>Schedule:</strong> We have posted a <a href="https://docs.google.com/document/d/1E9vF_ckpCAb2DdgvTLGPoosY8ah1SfB3i63Ku5Rr0vs/edit">complete schedule</a> for your use only. Please do not share with the public, as this is subject to change without notice.</li>
+	</ul>
+
+	<p><strong>Please note:</strong> The Washington International Horse Show is taking place on F and 6 streets; <strong>F Street is closed in front of the theater.</strong></p>
+	
+	<p>If you can take Metro or other public transportation, please do so. But if you must park, see this <a href="http://www.shakespearetheatre.org/info/visit/finding-us/parking">list of parking options</a> from the Harman Theater.</p>
+			
+    <p>We're looking forward to an amazing event. The rehearsals so far are giving us goosebumps.</p>
+
+	<p>Sincerely,</p>
+	<p><strong>David Troy</strong><br/>
+		Curator, TEDxMidAtlantic
+	</p>
+  </body>
+</html>

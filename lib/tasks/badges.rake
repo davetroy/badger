@@ -111,13 +111,23 @@ namespace :badges do
     end    
   end
   
-  desc "Remind volunteers"
-  task :nag_list => :environment do
+  desc "Remind team"
+  task :team_email => :environment do
     Badge.team.each do |b|
       msg = BadgeMailer.volunteer_reminder(b)
       msg.deliver
     end
   end
+
+  desc "Remind speakers"
+  task :speaker_email => :environment do
+    Badge.speaker.each do |b|
+      msg = BadgeMailer.speaker_reminder(b)
+      msg.deliver
+    end
+  end
+  
+
   
 end
 

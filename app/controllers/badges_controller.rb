@@ -19,6 +19,18 @@ class BadgesController < ApplicationController
   # GET /badges/1.json
   def show
     @badge = Badge.find_by_key(params[:id])
+    respond_to do |format|
+      format.html
+    end
+  end
+  
+  def logo
+    @badge = Badge.find_by_key(params[:id])
+    format.png do
+      self.logo_seen += 1
+      self.save
+      render :file => 'assets/logo.png'
+    end    
   end
 
   # GET /badges/new

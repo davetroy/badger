@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+	<style type="text/css">
+		body{
+			font-family:Helvetica, Arial, sans-serif;
+			background-color:#ffffff;
+			margin: 20px;
+		}
+		a{
+			color:#ff0000;
+			text-decoration:none;
+		}
+		img{
+			border:0;
+			display:block;
+		}
+		p.intro {
+			font-weight: bold;
+		}
+		span.uline {
+			text-decoration: underline;
+		}
+		li {
+			margin-bottom:2px;
+		}
+		li.bullet {
+			margin-bottom:12px;
+		}
+		#wrapper {
+			width: 650px;
+		}
+		#wrapper2 {
+			margin: 20px;
+			padding: 15px 0px 15px 40px;
+			background-color: #eee;
+			width: 650px;
+		}
+	</style>
+  </head>
+  <body>
+	<div id="wrapper">
+	<img src="<%=logo_url(@badge)%>" width="284" height="47" alt="TEDxMidAtlantic" style="border: 0;display: block;">
+	
+	<p>Dear <%=@badge.firstname%>,</p>
+	
+    <p class="intro">
+		TEDxMidAtlantic 2012 is going to be amazing. Here are some last minute details to ensure that you have a smooth experience.
+    </p>
+	<ul>
+		<li class="bullet"><strong>Come rested and arrive on time.</strong> Doors will open at 8:00am tomorrow. Arrive early, get your badge, have a cup of coffee, and meet some fellow TEDxers!</li>
+		<li class="bullet"><strong>Your badge will be ready for you when you arrive.</strong> You do not need to bring anything other than identification to claim your badge. <em>Badges are not transferable and can only be claimed by the named badgeholder.</em>
+		<li class="bullet"><strong>The theater will open at 9:15am.</strong> We would like everyone in their seats by 9:25am. The program will begin at 9:30am.</li>
+		<li class="bullet"><strong>The theater will be full.</strong> We are completely sold out, so be sure to fill every seat. TEDxers are amazing people, so use the opportunity to get to know each other!</li>
+		<li class="bullet"><strong>Caution: Horses.</strong> The Washington International Horse Show is taking place on F and 6 streets; <strong>F Street is closed in front of the theater.</strong> This won't affect anything but the flow of traffic, but don't let it take you by surprise.</li>
+		<li class="bullet"><strong>Use public transportation if you can.</strong> The closest Metro station is <em>Gallery Place - Chinatown</em>. If you must park, see this <a href="http://www.shakespearetheatre.org/info/visit/finding-us/parking">list of parking options</a> from the Harman Theater.</li>
+		<li class="bullet"><strong>We'll have food and drinks during breaks.</strong> We have lots of delicious food and drinks on tap for breakfast, lunch, and during breaks. All food is included in your event ticket.</li>
+		<li class="bullet"><strong>Bring a water bottle if you have one.</strong> We have arranged for bottle refill stations so you can stay hydrated. Thanks to Dopper, we also have water bottles for you if you'd like one. We're trying to stay as green as possible by minimizing waste.</li>
+		<li class="bullet"><strong>The theater will stay closed during sessions.</strong> Because we are filming, entry to the theater is prohibited while sessions are in progress.</li>
+		<li class="bullet"><strong>No gadgets &mdash; except in the back row.</strong> We love technology and social media, but the glow of screens is a <span class='uline'>huge</span> distraction. As a courtesy to others, we ask that any tweeting or other use of devices take place only in the rear row of either the main theater or the balcony.</li>
+		<li class="bullet"><strong>No photography or videos in the theater.</strong> We have fantastic professional videographers and photographers who will present our speakers in their best light. Please let them handle the photography so you can enjoy the show.</li>
+		<li class="bullet"><strong>Feel free to Tweet during breaks.</strong> The official hashtag is #TEDxMid. Share your thoughts, observations, and insights with the world!</li>
+		<li class="bullet"><strong>Tell your friends about the live stream.</strong> Know people who wanted to be here but couldn't? Have them tune in to our free live stream at <a href="http://tedxmidatlantic.com/live">http://tedxmidatlantic.com/live</a></li>
+		<li class="bullet"><strong>Friday Night:</strong> Please join us for our <em>Be Fearless</em> reception at Living Social's amazing event space at 918 F St. NW. The party will run from 6-10pm and will feature great food, drinks, music, and a few special surprises!</li>
+		<li class="bullet"><strong>Any Questions? Ask Us!</strong> If you need something, just ask. Our staff and volunteers will be easy to spot with TEDxMidAtlantic t-shirts and are here to help.</li>		
+	</ul>
+	
+	<div id="wrapper2">
+		<h2>TEDxMidAtlantic 2012 &mdash; Friday, October 26</h2>
+		<p class="intro">Session 1 - What We Hold Dear (10:00am-11:30am)</p>
+		<ul>
+			<li>Silvia Barcellos</li>
+			<li>Alessandro Acquisti</li>
+			<li>Jessica Ladd</li>
+			<li>Jules Polenetsky</li>
+			<li>Jaison Morgan</li>
+			<li>Lt. Gen Mark Hertling</li>
+		</ul>
+
+		<p class="intro">Session 2 - Walking a Wire (1:25pm-3:25pm)</p>
+		<ul>
+			<li>Erica Saben</li>
+			<li>Jonathan Haidt</li>
+			<li>Barbara Van Dahlen</li>
+			<li>Paula Kahumbu</li>
+			<li>Adrian Bejan</li>
+			<li>Theo Colborn</li>
+			<li>Charity Tillemann Dick</li>
+		</ul>
+
+		<p class="intro">Session 3 - Engage (4:15pm-6:00pm)</p>
+		<ul>
+			<li>Alec Ross</li>
+			<li>David Rubenstein</li>
+			<li>Noor Siddiqui</li>
+			<li>Freeman Hrabowski</li>
+			<li>Colin Powell</li>
+			<li>Marci Harris</li>
+			<li>Sage Salvo</li>
+		</ul>
+	</div>
+    <p>We're looking forward to an amazing event. The rehearsals are giving us goosebumps. See you tomorrow morning!</p>
+
+	<p>Sincerely,</p>
+	<p><strong>David Troy</strong><br/>
+		Curator, TEDxMidAtlantic
+	</p>
+  </body>
+</html>

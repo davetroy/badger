@@ -121,8 +121,27 @@ namespace :badges do
 
   desc "Remind speakers"
   task :speaker_email => :environment do
-    Badge.speaker.each do |b|
+    Badge.speakers.each do |b|
       msg = BadgeMailer.speaker_reminder(b)
+      puts "To: #{msg.to} Subject: #{msg.subject}"
+      msg.deliver
+    end
+  end
+  
+  desc "Remind attendees - Friday"
+  task :friday_email => :environment do
+    Badge.speakers.each do |b|
+      msg = BadgeMailer.friday_reminder(b)
+      puts "To: #{msg.to} Subject: #{msg.subject}"
+      msg.deliver
+    end
+  end
+
+  desc "Remind attendees - Saturday"
+  task :saturday_email => :environment do
+    Badge.speakers.each do |b|
+      msg = BadgeMailer.saturday_reminder(b)
+      puts "To: #{msg.to} Subject: #{msg.subject}"
       msg.deliver
     end
   end

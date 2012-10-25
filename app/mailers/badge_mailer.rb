@@ -14,5 +14,26 @@ class BadgeMailer < ActionMailer::Base
          :to => @badge.full_email,
          :subject => "[TEDxMidAtlantic] Reminder: Staff and Volunteer mandatory meeting 5pm TODAY")
   end
+
+  def speaker_reminder(badge)
+    @badge = badge
+    mail(:from => "TEDxMidAtlantic Team <contact@tedxmidatlantic.com>",
+         :to => @badge.full_email,
+         :subject => "[TEDxMidAtlantic Speakers] Rundown for Thursday, Friday, and Saturday")
+  end
+
+  def friday_reminder(badge)
+    @badge = badge
+    mail(:from => "TEDxMidAtlantic Team <contact@tedxmidatlantic.com>",
+         :to => @badge.full_email,
+         :subject => "[TEDxMidAtlantic] Friday: What you need to know")
+  end
+
+  def saturday_reminder(badge)
+    @badge = badge
+    mail(:from => "TEDxMidAtlantic Team <contact@tedxmidatlantic.com>",
+         :to => @badge.full_email,
+         :subject => "[TEDxMidAtlantic] Saturday: What you need to know")
+  end
   
 end

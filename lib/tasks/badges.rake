@@ -130,7 +130,7 @@ namespace :badges do
   
   desc "Remind attendees - Friday"
   task :friday_email => :environment do
-    Badge.speakers.each do |b|
+    Badge.friday.each do |b|
       msg = BadgeMailer.friday_reminder(b)
       puts "To: #{msg.to} Subject: #{msg.subject}"
       msg.deliver
@@ -139,7 +139,7 @@ namespace :badges do
 
   desc "Remind attendees - Saturday"
   task :saturday_email => :environment do
-    Badge.speakers.each do |b|
+    Badge.saturday.each do |b|
       msg = BadgeMailer.saturday_reminder(b)
       puts "To: #{msg.to} Subject: #{msg.subject}"
       msg.deliver

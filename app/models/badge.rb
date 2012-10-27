@@ -10,8 +10,9 @@ class Badge < ActiveRecord::Base
   scope :never_emailed, { :conditions => 'emailed_at IS NULL' }
   scope :team, { :conditions => ["badge_type IN (?)", ['volunteer', 'staff', 'crew']] }
   scope :speakers, { :conditions => ['badge_type=?', 'speaker'] }
-  scope :friday, { :conditions => 'badge_type NOT LIKE '%saturday%' }
-  scope :saturday, { :conditions => 'badge_type NOT LIKE '%friday%' }
+  
+  scope :friday, { :conditions => "badge_type NOT LIKE '%saturday%'" }
+  scope :saturday, { :conditions => "badge_type NOT LIKE '%friday%'" }
   
   validates_presence_of :firstname, :lastname, :email
   

@@ -36,4 +36,12 @@ class BadgeMailer < ActionMailer::Base
          :subject => "[TEDxMidAtlantic] Saturday: What you need to know")
   end
   
+  def wrap_email(badge)
+    @badge = badge
+    mail(:from => "TEDxMidAtlantic Team <contact@tedxmidatlantic.com>",
+         :to => @badge.full_email,
+         :subject => "[TEDxMidAtlantic] It's a wrap! Please tell us what you thought of TEDxMidAtlantic 2012")
+  end
+    
+  
 end

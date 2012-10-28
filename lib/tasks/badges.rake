@@ -145,6 +145,15 @@ namespace :badges do
       msg.deliver
     end
   end
+
+  desc "Wrap Email - Survey"
+  task :wrap_email => :environment do
+    Badge.all.each do |b|
+      msg = BadgeMailer.wrap_email(b)
+      puts "To: #{msg.to} Subject: #{msg.subject}"
+      msg.deliver
+    end
+  end
   
 
   

@@ -32,7 +32,7 @@ class Badge < ActiveRecord::Base
         "Guest"
     end
   end
-  
+    
   def buyer
     "#{buyer_firstname} #{buyer_lastname}"
   end
@@ -64,8 +64,12 @@ class Badge < ActiveRecord::Base
     buyer!=ticketholder
   end
   
-  def full_email
+  def buyer_email
     "#{buyer} <#{email}>"
+  end
+  
+  def full_email
+    "#{ticketholder} <#{email}>"
   end
   
   def send_email

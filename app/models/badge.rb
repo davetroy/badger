@@ -69,7 +69,7 @@ class Badge < ActiveRecord::Base
   end
   
   def full_email
-    "#{ticketholder} <#{email}>"
+    "\"#{ticketholder}\" <#{email}>"
   end
   
   def send_email

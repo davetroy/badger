@@ -42,6 +42,12 @@ class BadgeMailer < ActionMailer::Base
          :to => @badge.full_email,
          :subject => "[TEDxMidAtlantic] It's a wrap! Please tell us what you thought of TEDxMidAtlantic 2012")
   end
-    
+  
+  def fb_email(badge)
+    @badge = badge
+    mail(:from => "TEDxMidAtlantic Team <contact@tedxmidatlantic.com>",
+         :to => @badge.full_email,
+         :subject => "[TEDxMidAtlantic] Staying in touch and building our community")
+  end
   
 end

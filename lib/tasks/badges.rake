@@ -154,9 +154,16 @@ namespace :badges do
       msg.deliver
     end
   end
-  
 
-  
+  desc "FB Email - Survey"
+  task :fb_email => :environment do
+    Badge.all.each do |b|
+      msg = BadgeMailer.fb_email(b)
+      puts "To: #{msg.to} Subject: #{msg.subject}"
+      msg.deliver
+    end
+  end
+    
 end
 
 

@@ -163,6 +163,14 @@ namespace :badges do
       msg.deliver
     end
   end
+  
+  desc "Mail List"
+  task :mail_list => :environment do
+    Badge.all.each do |b|
+      line = [b.buyer_firstname || b.firstname, b.firstname,b.lastname,b.email,b.key]
+      puts FasterCSV.generate_line(line)
+    end
+  end
     
 end
 
